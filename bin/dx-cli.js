@@ -14,6 +14,7 @@ program
   .command('new <type> <name>')
   .description('添加新的功能：page: p, component: c')
   .option('-d, --dirname <dir>')
+  .option('-n, --name <name>')
   .action(async (type, name, cmd) => {
     await require('../src/new').run(type, name, cmd);
   });
