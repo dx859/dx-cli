@@ -1,7 +1,7 @@
 {
-  "name": "dx-cli",
-  "version": "0.0.1",
-  "description": "个人使用的工具",
+  "name": "mcg-cli",
+  "version": "0.0.2",
+  "description": "云采购cli工具",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

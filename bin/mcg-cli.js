@@ -12,9 +12,9 @@ program
 
 program
   .command('new <type> <name>')
-  .description('添加新的功能：page: p, component: c')
-  .option('-d, --dirname <dir>')
-  .option('-n, --name <name>')
+  .description('添加新的功能 type(类型)：page: p, component: c; name(名称)')
+  .option('-d, --dirname <dir>', '文件的父级路径')
+  .option('-n, --name <name>', '组件的名称')
   .action(async (type, name, cmd) => {
     await require('../src/new').run(type, name, cmd);
   });
