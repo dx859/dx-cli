@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "dx-cli": "./bin/dx-cli.js"
+    "mcg-cli": "./bin/mcg-cli.js"
   },
   "repository": {
     "type": "git",
