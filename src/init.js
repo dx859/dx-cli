@@ -1,12 +1,12 @@
-const fs = require("fs");
-const chalk = require("chalk");
-const ora = require("ora");
+const fs = require('fs');
+const chalk = require('chalk');
+const ora = require('ora');
 const download = require('download-git-repo');
 
 exports.run = (type, name) => {
-
   const gitMap = {
-    'react': 'https://github.com:dx859/react-antd-template#master'
+    react: 'https://github.com:dx859/react-antd-template#master',
+    package: 'https://github.com:dx859/npm-package-template#master'
   };
   if (!gitMap[type]) {
     console.log(chalk.red(`没有${type}项目`));
@@ -16,24 +16,22 @@ exports.run = (type, name) => {
     console.log(chalk.red(`目录${name}已存在`));
     return;
   }
-  const spinner = ora("download...");
+  const spinner = ora('download...');
   spinner.start();
 
-  download(gitMap[type], name, err=>{
+  download(gitMap[type], name, err => {
     if (err) {
       spinner.fail();
       console.log(chalk.red(err));
-    }else {
+    } else {
       spinner.succeed();
-      const pageFile = `${name}/package.json`
+      const pageFile = `${name}/package.json`;
       if (fs.existsSync(pageFile)) {
         const content = JSON.parse(fs.readFileSync(pageFile).toString());
         content.name = name;
-        fs.writeFileSync(pageFile, JSON.stringify(content))
+        fs.writeFileSync(pageFile, JSON.stringify(content, null, 2));
       }
       console.log(chalk.green('success'));
     }
-  })
-
+  });
 };
-
